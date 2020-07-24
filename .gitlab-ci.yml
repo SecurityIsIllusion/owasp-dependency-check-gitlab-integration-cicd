@@ -1,0 +1,12 @@
+stages:
+    - dependencycheck
+dependencycheck:
+    stage: dependencycheck
+    image:
+        name: owasp/dependency-check
+        entrypoint: [""]
+#    before_script:
+#        - mkdir data
+#        - mkdir dependency-check
+    script:
+        - /usr/share/dependency-check/bin/dependency-check.sh --project Test --out . --scan . --enableExperimental --failOnCVSS 7
